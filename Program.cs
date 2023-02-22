@@ -8,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.WebHost.UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT"));
+
 
 builder.Services.Configure<DiaryDatabaseSettings>(
     builder.Configuration.GetSection("DiaryDatabase"));
