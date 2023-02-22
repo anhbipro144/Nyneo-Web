@@ -1,0 +1,28 @@
+@model LoginUser
+<form asp-action="Login" class="text-titleText grid  grid-cols-2 grid-rows-6 w-fit gap-x-32" method="post">
+
+    @* Title *@
+    <div class="mb-7">
+        <label class="mb-9" asp-for=@Model.Email></label>
+        <input asp-for=@Model.Email
+            class="block rounded-md bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm w-72 p-2.5 focus:outline-none focus:border-primary transition-colors duration-300" />
+        <span asp-validation-for=@Model.Email class="text-red-700"></span>
+    </div>
+
+    <div class="mb-7 ">
+        <label class="mb-9" asp-for=@Model.Password></label>
+        <input asp-for=@Model.Password
+            class="block rounded-md bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm w-72 p-2.5 focus:outline-none focus:border-primary transition-colors duration-300" />
+        <span asp-validation-for=@Model.Password class="text-red-700"></span>
+
+    </div>
+
+
+    <div class="mb-7 hidden">
+        <input type="hidden" asp-for=@Model.returnUrl class="block rounded-md bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm w-72 p-2.5 focus:outline-none
+        focus:border-primary transition-colors duration-300" />
+    </div>
+
+    <button type="submit" class=" w-full py-2 col-span-2 text-lg  font-bold bg-primary">Login</button>
+
+</form>

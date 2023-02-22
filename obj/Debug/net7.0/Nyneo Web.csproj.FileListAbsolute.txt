@@ -1,0 +1,49 @@
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\appsettings.Development.json
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\appsettings.json
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\Nyneo Web.staticwebassets.runtime.json
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\Nyneo Web.exe
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\Nyneo Web.deps.json
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\Nyneo Web.runtimeconfig.json
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\Nyneo Web.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\Nyneo Web.pdb
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.csproj.AssemblyReference.cache
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.AssemblyInfoInputs.cache
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.AssemblyInfo.cs
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.csproj.CoreCompileInputs.cache
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.RazorAssemblyInfo.cache
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.RazorAssemblyInfo.cs
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\staticwebassets\msbuild.Nyneo Web.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\staticwebassets\msbuild.build.Nyneo Web.props
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Nyneo Web.props
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Nyneo Web.props
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\staticwebassets.build.json
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\staticwebassets.development.json
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\scopedcss\bundle\Nyneo Web.styles.css
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\scopedcss\projectbundle\Nyneo Web.bundle.scp.css
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\refint\Nyneo Web.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.pdb
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.genruntimeconfig.cache
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\ref\Nyneo Web.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\AWSSDK.Core.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\AWSSDK.SecurityToken.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\DnsClient.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\MongoDB.Bson.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\MongoDB.Driver.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\MongoDB.Driver.Core.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\MongoDB.Libmongocrypt.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\SharpCompress.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\Snappier.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\ZstdSharp.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\runtimes\linux\native\libmongocrypt.so
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\runtimes\win\native\mongocrypt.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\obj\Debug\net7.0\Nyneo Web.csproj.CopyComplete
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\package-lock.json
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\package.json
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\AspNetCore.Identity.MongoDbCore.dll
+C:\Neo\Study\Asp.Net Core\Projects\Nyneo Web\bin\Debug\net7.0\MongoDbGenericRepository.dll
