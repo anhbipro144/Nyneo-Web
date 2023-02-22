@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Nyneo_Web.Models;
 using Nyneo_Web.Services.Implementations;
@@ -11,9 +13,13 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
 
     private readonly DiaryRepositoryService _diaryRepository;
+    private UserManager<User> _userManager;
 
-    public HomeController(ILogger<HomeController> logger, DiaryRepositoryService diaryRepository)
+
+    public HomeController(ILogger<HomeController> logger, DiaryRepositoryService diaryRepository, UserManager<User> userManager)
+
     {
+        _userManager = userManager;
         _diaryRepository = diaryRepository;
         _logger = logger;
     }
@@ -24,7 +30,21 @@ public class HomeController : Controller
     [Authorize]
     public IActionResult List()
     {
-        IEnumerable<Diary> result = _diaryRepository.GetAll().Result;
+        IEnumerable<IndexDiaryVM> result = _diaryRepository.GetAll().Result.Select(diary =>
+        {
+            var user = _userManager.FindByIdAsync(diary.userId).Result;
+
+            return new IndexDiaryVM()
+            {
+                content = diary.content,
+                created_at = diary.created_at,
+                title = diary.title,
+                userName = user?.UserName
+            };
+        });
+
+
+
         return View(result);
     }
 
@@ -37,12 +57,18 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult CreateDiary()
     {
-        return View();
+        var userID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        var model = new CreateDiary()
+        {
+            userId = userID
+        };
+        return View(model);
     }
 
     [Authorize]
     [HttpPost]
-    public async Task<IActionResult> CreateDiary(Diary diary)
+    public async Task<IActionResult> CreateDiary(Diary model)
     {
 
         if (!ModelState.IsValid)
@@ -50,9 +76,17 @@ public class HomeController : Controller
             return View();
         }
 
+        var diary = new Diary()
+        {
+            content = model.content,
+            title = model.title,
+            userId = model.userId
+        };
+
+
         await _diaryRepository.CreateAsync(diary);
 
-        return RedirectToAction("Index");
+        return RedirectToAction("List", "Home");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
