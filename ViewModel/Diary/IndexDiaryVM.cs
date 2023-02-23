@@ -6,6 +6,8 @@ namespace Nyneo_Web.Models;
 
 public class IndexDiaryVM
 {
+
+    public string id { get; set; }
     public string? userName { get; set; }
 
 

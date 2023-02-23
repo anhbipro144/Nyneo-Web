@@ -28,8 +28,6 @@ public class DiaryRepositoryService : IDiaryRepository
     public async Task<Diary?> GetAsync(string id) =>
         await _diarysCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-    public async Task CreateAsync(Diary newDiary) =>
-        await _diarysCollection.InsertOneAsync(newDiary);
 
     public async Task UpdateAsync(string id, Diary updatedDiary) =>
         await _diarysCollection.ReplaceOneAsync(x => x.Id == id, updatedDiary);
@@ -37,6 +35,9 @@ public class DiaryRepositoryService : IDiaryRepository
     public async Task RemoveAsync(string id) =>
         await _diarysCollection.DeleteOneAsync(x => x.Id == id);
 
+
+
+    // ------------------------
     public async Task<IEnumerable<Diary>> GetAll()
     {
         return await _diarysCollection.Find(_ => true).ToListAsync();
@@ -47,18 +48,18 @@ public class DiaryRepositoryService : IDiaryRepository
         return await _diarysCollection.Find(x => x.Id == diaryId).FirstOrDefaultAsync();
     }
 
-    public Task AddAsync(Diary model)
-    {
-        throw new NotImplementedException();
-    }
+
+    public async Task AddAsync(Diary newDiary) =>
+      await _diarysCollection.InsertOneAsync(newDiary);
+
 
     public Task UpdateAsync(Diary model)
     {
         throw new NotImplementedException();
     }
 
-    public Task DeleteAsync(string diaryId)
+    public async Task DeleteAsync(string diaryId)
     {
-        throw new NotImplementedException();
+        await _diarysCollection.DeleteOneAsync(d => d.Id == diaryId);
     }
 }
