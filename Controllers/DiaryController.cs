@@ -56,11 +56,7 @@ namespace Nyneo_Web.Controllers
 
         #region  Delete
 
-        [HttpGet]
-        public IActionResult Delete()
-        {
-            return View();
-        }
+
         [HttpPost]
         public async Task<IActionResult> Delete(string diaryId)
         {
