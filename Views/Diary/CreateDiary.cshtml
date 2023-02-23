@@ -8,7 +8,7 @@
             @* Title *@
             <div class="md:mb-7 ">
                 <input placeholder="Title" asp-for=@Model.title
-                    class="md:w-1/3 w-full font-bold text-gray-700 text-3xl  bg-transparent     focus:outline-none " />
+                    class="md:w-1/3 w-full font-bold text-gray-700 text-3xl  bg-transparent focus:outline-none " />
                 <span asp-validation-for=@Model.title class="text-red-700"></span>
             </div>
 
@@ -16,7 +16,7 @@
             @* Content *@
             <div class="md:mb-7 ">
                 <textarea rows="10" asp-for=@Model.content
-                    class="md:w-1/3 bg-transparent   w-full  focus:outline-none "></textarea>
+                    class="md:w-1/3 bg-transparent   w-full    focus:outline-none "></textarea>
                 <span asp-validation-for=@Model.content class="text-red-700"></span>
 
             </div>

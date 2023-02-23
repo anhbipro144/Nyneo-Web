@@ -36,6 +36,7 @@ public class HomeController : Controller
 
             return new IndexDiaryVM()
             {
+                id = diary.Id,
                 content = diary.content,
                 created_at = diary.created_at,
                 title = diary.title,
@@ -53,41 +54,7 @@ public class HomeController : Controller
         return View();
     }
 
-    [Authorize]
-    [HttpGet]
-    public IActionResult CreateDiary()
-    {
-        var userID = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-        var model = new CreateDiary()
-        {
-            userId = userID
-        };
-        return View(model);
-    }
-
-    [Authorize]
-    [HttpPost]
-    public async Task<IActionResult> CreateDiary(Diary model)
-    {
-
-        if (!ModelState.IsValid)
-        {
-            return View();
-        }
-
-        var diary = new Diary()
-        {
-            content = model.content,
-            title = model.title,
-            userId = model.userId
-        };
-
-
-        await _diaryRepository.CreateAsync(diary);
-
-        return RedirectToAction("List", "Home");
-    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

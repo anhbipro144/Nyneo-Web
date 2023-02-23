@@ -1,22 +1,22 @@
 <header>
-    <nav class="container mx-auto md:px-10  bg-primary flex justify-between items-center">
-        <a class="p-5  rounded-full text-white font-bold" asp-controller="Home" asp-action="Index">Nyneo_Web</a>
-        @{
-            if (User?.Identity?.IsAuthenticated ?? false)
-            {
-                <div class="flex gap-2 px-2">
-                    <span class="text-white">Welcome: @User.Identity.Name</span>
-                    <a asp-controller="Operations" asp-action="Logout" class="text-white">Logout</a>
-                </div>
+    <nav class="  md:px-10  bg-primary flex justify-between items-center">
+        <a class="p-5  rounded-full text-white font-bold text-2xl" asp-controller="Home" asp-action="Index">Nyneo</a>
 
-            }
-            else
-            {
-                <div class="flex gap-2">
-                    <a asp-controller="Operations" asp-action="Login" class="text-white">Login</a>
-                </div>
+        @if (User?.Identity?.IsAuthenticated ?? false)
+        {
+            <div class="flex gap-2 px-2">
+                <span class="text-white">Welcome: @User.Identity.Name</span>
+                <a asp-controller="Operations" asp-action="Logout" class="text-white">Logout</a>
+            </div>
 
-            }
         }
+        else
+        {
+            <div class="flex gap-2">
+                <a asp-controller="Operations" asp-action="Login" class="text-white">Login</a>
+            </div>
+
+        }
+
     </nav>
 </header>

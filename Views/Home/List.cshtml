@@ -3,7 +3,7 @@
 
 <section id="diaries">
     <div class="container mx-auto flex justify-center ">
-        <div class="flex flex-col md:w-2/5 w-full md:px-2  gap-5 items-center py-5">
+        <div class="flex flex-col md:w-2/5 w-full md:px-2  gap-3 items-center py-5">
             <a asp-controller="Home" asp-action="CreateDiary" class="p-3 rounded-full text-white bg-primary "><svg
                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
@@ -36,12 +36,28 @@
                         @* Left *@
 
                         @* Right *@
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                            </svg>
+                        <div class="cursor-pointer">
+                            <div class="" data-dropdown-toggle="dropdown">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                </svg>
+                            </div>
+                            <div id="dropdown"
+                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-20 ">
+                                <ul class="py-2 text-sm text-gray-700 " aria-labelledby="dropdownDefaultButton">
+                                    <li>
+
+                                        <form asp-action="Delete" asp-controller="Diary" method="post">
+                                            <input type="hidden" name="diaryId" value=@item.id>
+                                            <button class="" type="submit">Delete</button>
+                                        </form>
+
+                                    </li>
+
+                                </ul>
+                            </div>
                         </div>
                         @* Right *@
                     </div>
@@ -50,7 +66,7 @@
 
                     <div class="  text-left">
                         <h1 class="text-lg font-bold text-gray-700">@item.title</h1>
-                        <h2 class="font-normal">@item.content</h2>
+                        <p class="font-normal">@item.content</p>
                     </div>
 
                 </div>
