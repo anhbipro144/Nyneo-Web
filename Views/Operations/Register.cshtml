@@ -1,57 +1,146 @@
 @model Nyneo_Web.Models.RegisterUser
-<form asp-action="Register" class="text-titleText grid  grid-cols-2 grid-rows-6 w-fit gap-x-32" method="post">
+@{
+    ViewBag.Title = "Register";
+    Layout = "_Layout";
+}
 
-    @* Title *@
-    <div class="mb-7">
-        <label class="mb-9" asp-for=@Model.FirstName></label>
-        <input asp-for=@Model.FirstName
-            class="block rounded-md bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm w-72 p-2.5 focus:outline-none focus:border-primary transition-colors duration-300" />
-        <span asp-validation-for=@Model.FirstName class="text-red-700"></span>
+<section id="register">
+    <div
+        class="md:flex-row md:justify-center  flex flex-col justify-start items-center py-5 bg-gradient-to-b from-secondary-500 to-secondary-200 min-h-screen ">
+
+
+        @* Welcome back *@
+        <div class="md:mb-60 md:text-left flex-col flex max-w-xl text-center  md:p-10 pb-10   z-10">
+            <div class="self-start flex flex-col  text-white">
+
+                <h1 class="mb-3 font-bold text-5xl">Welcome to <strong class="text-primary-500">Nyneo</strong> ! </h1>
+                <p class="pr-3">Lorem ipsum is placeholder text commonly </p>
+            </div>
+        </div>
+        @* Welcome back *@
+
+        @* Form *@
+        <div class=" md:mb-40 flex justify-center self-center z-10 rounded-2xl shadow-lg  max-w-2xl overflow-clip">
+
+            <div class="p-10 bg-white mx-auto ">
+
+
+                @* Sign in *@
+                <div class="mb-4">
+                    <h3 class="font-semibold text-3xl text-titleText">Create Account </h3>
+                    <p class="text-gray-500 ">Get access to exclusive features by creating an account.</p>
+                </div>
+                @* Sign in *@
+
+
+
+
+                <form class=" grid grid-cols-2 gap-x-3 gap-y-2 " asp-action="Register" asp-controller="Operations"
+                    method="post">
+
+                    @* FirstName *@
+                    <div class="">
+                        <label asp-for=@Model.FirstName
+                            class=" text-sm font-medium text-gray-700 tracking-wide"></label>
+                        <input asp-for=@Model.FirstName
+                            class="w-full  text-base px-4 py-2 border-2  border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
+                            type="" placeholder="John">
+                        <span asp-validation-for=@Model.FirstName></span>
+                    </div>
+                    @* FirstName *@
+
+
+                    @* LastName *@
+                    <div class="">
+                        <label asp-for=@Model.LastName class=" text-sm font-medium text-gray-700 tracking-wide"></label>
+                        <input asp-for=@Model.LastName
+                            class="w-full  text-base px-4 py-2 border-2  border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
+                            type="" placeholder="Cena">
+                        <span asp-validation-for=@Model.LastName></span>
+                    </div>
+                    @* LastName *@
+
+                    @* UserName *@
+                    <div class="">
+                        <label asp-for=@Model.Username class=" text-sm font-medium text-gray-700 tracking-wide"></label>
+                        <input asp-for=@Model.Username
+                            class="w-full  text-base px-4 py-2 border-2  border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
+                            type="" placeholder="User Name">
+                        <span asp-validation-for=@Model.Username></span>
+                    </div>
+                    @* UserName *@
+
+
+
+                    @* Email *@
+                    <div class="">
+                        <label asp-for=@Model.Email class=" text-sm font-medium text-gray-700 tracking-wide"></label>
+                        <input asp-for=@Model.Email
+                            class="w-full  text-base px-4 py-2 border-2  border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
+                            type="" placeholder="abc123@gmail.com">
+                        <span asp-validation-for=@Model.Email></span>
+                    </div>
+                    @* Email *@
+
+
+
+
+                    @* Password *@
+                    <div class="">
+                        <label asp-for=@Model.Password class="mb-5 text-sm font-medium text-gray-700 tracking-wide">
+                            Password
+                        </label>
+                        <input asp-for=@Model.Password
+                            class="w-full content-center text-base px-4 py-2 border-2   border-gray-300 transition-colors duration-300 rounded-lg focus:outline-none focus:border-primary"
+                            type="password" placeholder="Enter your password">
+                        <span asp-validation-for=@Model.Password></span>
+                    </div>
+                    @* Password *@
+
+                    @* Confirm password *@
+                    <div class="">
+                        <label asp-for=@Model.ConfirmPassword
+                            class="mb-5 text-sm font-medium text-gray-700 tracking-wide">
+
+                        </label>
+                        <input asp-for=@Model.ConfirmPassword
+                            class="w-full content-center text-base px-4 py-2 border-2   border-gray-300 transition-colors duration-300 rounded-lg focus:outline-none focus:border-primary"
+                            type="password" placeholder="Enter your password">
+                        <span asp-validation-for=@Model.ConfirmPassword></span>
+                    </div>
+                    @* Confirm password *@
+
+                    @* Gender *@
+                    <div class="col-span-2">
+                        <label asp-for=@Model.Gender class="mb-5 text-sm font-medium text-gray-700 tracking-wide">
+
+                        </label>
+                        <select asp-for=@Model.Gender
+                            class="w-full content-center text-base px-4 py-2 border-2   border-gray-300 transition-colors duration-300 rounded-lg focus:outline-none focus:border-primary"
+                            type="password" placeholder="Enter your password">
+                            <option value="Name">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
+                        <span asp-validation-for=@Model.Gender></span>
+                    </div>
+                    @* Gender *@
+
+                    @* Button *@
+                    <div class="mt-7 col-span-2 text-center">
+                        <button type="submit" class="thirdButton">
+                            Sign Up
+                        </button>
+                    </div>
+                    @* Button *@
+                </form>
+
+
+                <div class="mt-9 text-center">
+                    <h2>Already a member? <a asp-action="Login" class="text-primary-500 hover:underline">Sign In</a>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        @* Form *@
     </div>
-
-    <div class="mb-7 ">
-        <label class="mb-9" asp-for=@Model.LastName></label>
-        <input asp-for=@Model.LastName
-            class="block rounded-md bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm w-72 p-2.5 focus:outline-none focus:border-primary transition-colors duration-300" />
-        <span asp-validation-for=@Model.LastName class="text-red-700"></span>
-
-    </div>
-
-
-    <div class="mb-7 ">
-        <label class="mb-9" asp-for=@Model.Username></label>
-        <input asp-for=@Model.Username
-            class="block rounded-md bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm w-72 p-2.5 focus:outline-none focus:border-primary transition-colors duration-300" />
-        <span asp-validation-for=@Model.Username class="text-red-700"></span>
-
-    </div>
-
-    <div class="mb-7 ">
-        <label class="mb-9" asp-for=@Model.Email></label>
-        <input asp-for=@Model.Email
-            class="block rounded-md bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm w-72 p-2.5 focus:outline-none focus:border-primary transition-colors duration-300" />
-        <span asp-validation-for=@Model.Email class="text-red-700"></span>
-
-    </div>
-
-    <div class="mb-7 ">
-        <label class="mb-9" asp-for=@Model.Password></label>
-        <input asp-for=@Model.Password
-            class="block rounded-md bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm w-72 p-2.5 focus:outline-none focus:border-primary transition-colors duration-300" />
-        <span asp-validation-for=@Model.Password class="text-red-700"></span>
-
-    </div>
-    <div class="mb-7 ">
-        <label class="mb-9" asp-for=@Model.Gender></label>
-        <select asp-for=@Model.Gender
-            class="block rounded-md bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm w-72 p-2.5 focus:outline-none focus:border-primary transition-colors duration-300" />
-        <option value="male">Nam</option>
-        <option value="female">Nữ</option>
-        </select>
-        <span asp-validation-for=@Model.Gender class="text-red-700"></span>
-
-    </div>
-
-    <button type="submit" class=" w-full py-2 col-span-2 text-lg  font-bold bg-primary">Add</button>
-
-</form>
+</section>

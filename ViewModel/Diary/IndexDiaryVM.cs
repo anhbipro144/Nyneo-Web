@@ -20,5 +20,7 @@ public class IndexDiaryVM
 
     public DateTime created_at { get; set; }
 
+    public string userId { get; set; }
+
 }
 

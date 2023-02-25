@@ -1,4 +1,6 @@
 @model IEnumerable<IndexDiaryVM>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> userManager
 
 
 <section id="diaries">
@@ -51,14 +53,21 @@
                             @* Dropdown Menu *@
                             <div id=@item.id class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-20 ">
                                 <ul class="py-2 text-sm text-gray-700 " aria-labelledby="dropdownDefaultButton">
-                                    <li>
 
-                                        <form asp-action="Delete" asp-controller="Diary" method="post">
-                                            <input type="hidden" name="diaryId" value=@item.id>
-                                            <button class="text-red-500" type="submit">Delete</button>
-                                        </form>
+                                    @if (userManager.GetUserId(User) == item.userId)
+                                    {
+                                        <li>
+                                            <a asp-action="UpdateDiary" asp-controller="Diary" class="text-gray-800"
+                                        asp-route-diaryId=@item.id>Update</a>
+                                        </li>
+                                        <li>
+                                            <form asp-action="Delete" asp-controller="Diary" method="post">
+                                                <input type="hidden" name="diaryId" value=@item.id>
+                                                <button class="text-red-500" type="submit">Delete</button>
+                                            </form>
+                                        </li>
+                                    }
 
-                                    </li>
 
                                 </ul>
                             </div>

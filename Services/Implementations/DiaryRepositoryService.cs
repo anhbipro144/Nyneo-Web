@@ -25,16 +25,6 @@ public class DiaryRepositoryService : IDiaryRepository
 
 
 
-    public async Task<Diary?> GetAsync(string id) =>
-        await _diarysCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
-
-
-    public async Task UpdateAsync(string id, Diary updatedDiary) =>
-        await _diarysCollection.ReplaceOneAsync(x => x.Id == id, updatedDiary);
-
-    public async Task RemoveAsync(string id) =>
-        await _diarysCollection.DeleteOneAsync(x => x.Id == id);
-
 
 
     // ------------------------
@@ -53,9 +43,9 @@ public class DiaryRepositoryService : IDiaryRepository
       await _diarysCollection.InsertOneAsync(newDiary);
 
 
-    public Task UpdateAsync(Diary model)
+    public async Task UpdateAsync(Diary model)
     {
-        throw new NotImplementedException();
+        await _diarysCollection.ReplaceOneAsync(d => d.Id == model.Id, model);
     }
 
     public async Task DeleteAsync(string diaryId)

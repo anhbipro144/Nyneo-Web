@@ -40,7 +40,9 @@ public class HomeController : Controller
                 content = diary.content,
                 created_at = diary.created_at,
                 title = diary.title,
-                userName = user?.UserName
+                userName = user?.UserName,
+                userId = diary.userId
+
             };
         });
 

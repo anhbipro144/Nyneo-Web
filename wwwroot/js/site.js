@@ -2,3 +2,9 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+$(document).ready(function () {
+  $("#menuBtn").click(function () {
+    $("#navMenu").toggleClass("open-menu");
+    $("#navMenu").toggleClass("close-menu");
+  });
+});

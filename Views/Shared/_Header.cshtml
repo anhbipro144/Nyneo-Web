@@ -1,22 +1,39 @@
-<header>
-    <nav class="  md:px-10  bg-primary flex justify-between items-center">
-        <a class="p-5  rounded-full text-white font-bold text-2xl" asp-controller="Home" asp-action="Index">Nyneo</a>
+<header id="header">
+    <nav class="md:px-10 p-5 shadow-lg bg-secondary-500 flex justify-between items-center  w-full ">
+        <div class="flex justify-center items-center z-10">
+            <a class="  rounded-full text-white font-bold text-2xl align-middle h-full" asp-controller="Home"
+                asp-action="Index">Nyneo</a>
+        </div>
 
         @if (User?.Identity?.IsAuthenticated ?? false)
         {
-            <div class="flex gap-2 px-2">
-                <span class="text-white">Welcome: @User.Identity.Name</span>
-                <a asp-controller="Operations" asp-action="Logout" class="text-white">Logout</a>
-            </div>
+
+            <a class="text-white thirdButton " asp-controller="Operations" asp-action="Logout">Logout</a>
+
 
         }
         else
         {
-            <div class="flex gap-2">
-                <a asp-controller="Operations" asp-action="Login" class="text-white">Login</a>
+            @* <div class="flex gap-2 ">
+                <a class="text-white thirdButton px-6 py-2 rounded-lg" asp-controller="Operations"
+                asp-action="Login">Login</a>
+
+                <a class="text-white thirdButtonOutline px-6 py-2 rounded-lg" asp-controller="Operations"
+                asp-action="Register">Register</a>
+                </div> *@
+
+            <div class="flex">
+                <button id="menuBtn" class="menu-btn">A</button>
+                <div id="navMenu" class="wrapper  bg-secondary-500 open-menu flex justify-center items-center">
+                    <ul>
+                        <li><a class="thirdButton">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
             </div>
-
         }
-
     </nav>
 </header>

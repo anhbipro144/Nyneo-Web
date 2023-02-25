@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Nyneo_Web.Models;
 using Nyneo_Web.Services.Implementations;
@@ -10,9 +11,13 @@ namespace Nyneo_Web.Controllers
     public class DiaryController : Controller
     {
         private readonly DiaryRepositoryService _diaryRepository;
+        private readonly UserManager<User> _userManager;
 
-        public DiaryController(DiaryRepositoryService diaryRepository) =>
+        public DiaryController(DiaryRepositoryService diaryRepository, UserManager<User> userManager)
+        {
             _diaryRepository = diaryRepository;
+            _userManager = userManager;
+        }
 
 
         #region Add
@@ -31,7 +36,7 @@ namespace Nyneo_Web.Controllers
 
         [Authorize]
         [HttpPost("diary/add")]
-        public async Task<IActionResult> CreateDiary(Diary model)
+        public async Task<IActionResult> CreateDiary(CreateDiary model)
         {
 
             if (!ModelState.IsValid)
@@ -64,6 +69,34 @@ namespace Nyneo_Web.Controllers
 
             return RedirectToAction("List", "Home");
         }
+        #endregion
+
+        #region Update
+
+        [HttpGet]
+        public IActionResult UpdateDiary(string diaryId)
+
+        {
+            Diary model = _diaryRepository.GetById(diaryId).Result;
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateDiary(Diary model)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _diaryRepository.UpdateAsync(model);
+
+
+            return RedirectToAction("List", "Home");
+        }
+
         #endregion
 
 
