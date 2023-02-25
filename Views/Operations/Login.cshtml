@@ -4,10 +4,9 @@
     Layout = "_Layout";
 }
 
-
 <section id="login">
     <div
-        class="flex flex-col md:flex-row  md:justify-center justify-start items-center  bg-gradient-to-b from-secondary-500 to-secondary-200 min-h-screen">
+        class="flex flex-col justify-start items-center md:flex-row  md:justify-center   bg-gradient-to-b from-secondary-500 to-secondary-200 min-h-screen">
 
         @* Welcome back *@
         <div class="flex-col flex  p-10  xl:max-w-2xl  z-10">
@@ -25,82 +24,81 @@
         @* Welcome back *@
 
 
-        <div class="flex justify-center  z-10 rounded-2xl shadow-lg overflow-clip max-w-md">
-            <div class="p-12 bg-white mx-auto w-100 ">
+        <div class="flex justify-center flex-col  p-10 mb-40 bg-white rounded-2xl shadow-lg  max-w-md">
 
-                @* Sign in *@
-                <div class="mb-4">
-                    <h3 class="font-semibold text-3xl text-titleText">Sign In </h3>
-                    <p class="text-gray-500">Please sign in to your account.</p>
-                </div>
-                @* Sign in *@
 
-                @* Email *@
-                <form asp-action="Login" asp-controller="Operations" method="post" class="space-y-5">
-                    <div class="space-y-2">
-                        <label asp-for=@Model.Email
-                            class="text-sm font-medium text-gray-700 tracking-wide">Email</label>
-                        <input asp-for=@Model.Email
-                            class=" w-full text-base px-4 py-2 border-2  border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
-                            placeholder="nbi6731@gmail.com">
-                        <span asp-validation-for=@Model.Email class="text-red-700"></span>
-                    </div>
-                    @* Email *@
-
-                    @* Password *@
-                    <div class="space-y-2">
-                        <label asp-for=@Model.Password class="text-sm font-medium text-gray-700 tracking-wide"></label>
-                        <input asp-for=@Model.Password
-                            class=" w-full text-base px-4 py-2 border-2  border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
-                            type="password" placeholder="Enter Password">
-                        <span asp-validation-for=@Model.Password class="text-red-700"></span>
-                    </div>
-                    @* Password *@
-
-                    @* Return URL *@
-                    <div class="space-y-2">
-                        <input asp-for=@Model.returnUrl
-                            class=" w-full text-base px-4 py-2 border-2  border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
-                            type="hidden">
-                    </div>
-                    @* Return URL *@
-
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <input id="remember_me" name="remember_me" type="checkbox"
-                                class="h-4 w-4 bg-primary focus:ring-primary2-400 border-gray-300 rounded">
-                            <label for="remember_me" class="ml-2 block text-sm text-gray-800">
-                                Remember me
-                            </label>
-                        </div>
-                        <div class="text-sm">
-                            <a href="#" class="text-primary2-400 hover:text-primary2-600">
-                                Forgot your password?
-                            </a>
-                        </div>
-                    </div>
-                    @{
-                        if (ViewData["Message"] is not null)
-                        {
-                            <div class="text-center">
-                                <label class="text-red-700">@ViewData["Message"]</label>
-                            </div>
-                        }
-                    }
-                    <div>
-                        <button type="submit" class="thirdButton">
-                            Sign In
-                        </button>
-                    </div>
-                </form>
-
-                <div class="mt-9 text-center">
-                    <h2>Don't have an account? <a asp-action="Register" asp-controller="Operations"
-                            class="text-primary-500 hover:underline">Sign Up</a>
-                    </h2>
-                </div>
-
+            @* Sign in *@
+            <div class="mb-4">
+                <h3 class="font-semibold text-3xl text-titleText">Sign In </h3>
+                <p class="text-gray-500">Please sign in to your account.</p>
             </div>
+            @* Sign in *@
+
+            @* Email *@
+            <form asp-action="Login" asp-controller="Operations" method="post" class="space-y-5">
+                <div class="space-y-2">
+                    <label asp-for=@Model.Email class="text-sm font-medium text-gray-700 tracking-wide">Email</label>
+                    <input asp-for=@Model.Email
+                        class=" w-full text-base px-4 py-2 border-2  border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
+                        placeholder="nbi6731@gmail.com">
+                    <span asp-validation-for=@Model.Email class="text-red-700"></span>
+                </div>
+                @* Email *@
+
+                @* Password *@
+                <div class="space-y-2">
+                    <label asp-for=@Model.Password class="text-sm font-medium text-gray-700 tracking-wide"></label>
+                    <input asp-for=@Model.Password
+                        class=" w-full text-base px-4 py-2 border-2  border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
+                        type="password" placeholder="Enter Password">
+                    <span asp-validation-for=@Model.Password class="text-red-700"></span>
+                </div>
+                @* Password *@
+
+                @* Return URL *@
+                <div class="space-y-2">
+                    <input asp-for=@Model.returnUrl
+                        class=" w-full text-base px-4 py-2 border-2  border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
+                        type="hidden">
+                </div>
+                @* Return URL *@
+
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input id="remember_me" name="remember_me" type="checkbox"
+                            class="h-4 w-4 bg-primary focus:ring-primary2-400 border-gray-300 rounded">
+                        <label for="remember_me" class="ml-2 block text-sm text-gray-800">
+                            Remember me
+                        </label>
+                    </div>
+                    <div class="text-sm">
+                        <a href="#" class="text-primary2-400 hover:text-primary2-600">
+                            Forgot your password?
+                        </a>
+                    </div>
+                </div>
+                @{
+                    if (ViewData["Message"] is not null)
+                    {
+                        <div class="text-center">
+                            <label class="text-red-700">@ViewData["Message"]</label>
+                        </div>
+                    }
+                }
+                <div>
+                    <button type="submit" class="thirdButton w-full py-2">
+                        Sign In
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-9 text-center">
+                <h2>Don't have an account? <a asp-action="Register" asp-controller="Operations"
+                        class="text-primary-500 hover:underline">Sign Up</a>
+                </h2>
+            </div>
+
+
         </div>
 
     </div>
