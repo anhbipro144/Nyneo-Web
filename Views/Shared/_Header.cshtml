@@ -23,14 +23,28 @@
                 </div> *@
 
             <div class="flex">
-                <button id="menuBtn" class="menu-btn">A</button>
-                <div id="navMenu" class="wrapper  bg-secondary-500 open-menu flex justify-center items-center">
-                    <ul>
-                        <li><a class="thirdButton">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Gallery</a></li>
-                        <li><a href="#">Feedback</a></li>
+                <button id="open-menu-btn" class=" flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                    stroke="currentColor" class="w-8 h-8 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+
+                <div id="navMenu" class="wrapper  bg-secondary-500 open-menu flex justify-center items-start">
+                    <button id="close-menu-btn" class="absolute top-6 right-5  justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                        stroke="currentColor" class="w-8 h-8 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+
+                    </button>
+                    <ul class="mt-40">
+                        <li><a class="uppercase">HOME</a></li>
+                        <li><a class="uppercase" href="#">ABOUT</a></li>
+                        <li><a class="uppercase" href="#">SERVICES</a></li>
+                        <li><a class="uppercase" href="#">GALLERY</a></li>
+                        <li><a class="uppercase" href="#">FEEDBACK</a></li>
                     </ul>
                 </div>
             </div>

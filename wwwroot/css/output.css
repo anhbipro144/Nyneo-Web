@@ -602,6 +602,46 @@ video {
   top: 0px;
 }
 
+.left-2 {
+  left: 0.5rem;
+}
+
+.top-2 {
+  top: 0.5rem;
+}
+
+.right-2 {
+  right: 0.5rem;
+}
+
+.top-5 {
+  top: 1.25rem;
+}
+
+.right-10 {
+  right: 2.5rem;
+}
+
+.top-10 {
+  top: 2.5rem;
+}
+
+.right-8 {
+  right: 2rem;
+}
+
+.top-8 {
+  top: 2rem;
+}
+
+.right-5 {
+  right: 1.25rem;
+}
+
+.top-6 {
+  top: 1.5rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -659,6 +699,10 @@ video {
   margin-top: 0.5rem;
 }
 
+.mt-40 {
+  margin-top: 10rem;
+}
+
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -669,10 +713,6 @@ video {
 
 .mt-9 {
   margin-top: 2.25rem;
-}
-
-.mb-40 {
-  margin-bottom: 10rem;
 }
 
 .block {
@@ -715,6 +755,18 @@ video {
   height: 100%;
 }
 
+.h-7 {
+  height: 1.75rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.min-h-full {
+  min-height: 100%;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -746,6 +798,14 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-7 {
+  width: 1.75rem;
+}
+
+.w-8 {
+  width: 2rem;
 }
 
 .max-w-2xl {
@@ -937,10 +997,6 @@ video {
   overflow: hidden;
 }
 
-.overflow-clip {
-  overflow: clip;
-}
-
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1051,11 +1107,6 @@ video {
   background-color: rgb(255 255 255 / 0.5);
 }
 
-.bg-slate-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
-}
-
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1080,10 +1131,6 @@ video {
 
 .p-10 {
   padding: 2.5rem;
-}
-
-.p-12 {
-  padding: 3rem;
 }
 
 .p-2 {
@@ -1219,6 +1266,10 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .leading-6 {
@@ -1424,7 +1475,7 @@ video {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   bottom: 0;
   /* height: 100%;
   width: 100%; */
@@ -1438,7 +1489,7 @@ video {
 }
 
 .menu-btn {
-  z-index: 2;
+  /* z-index: 2; */
   background: #000;
   height: 50px;
   width: 50px;
@@ -1694,10 +1745,6 @@ video {
 
   .md\:flex-row {
     flex-direction: row;
-  }
-
-  .md\:items-start {
-    align-items: flex-start;
   }
 
   .md\:justify-center {

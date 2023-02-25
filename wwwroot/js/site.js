@@ -3,7 +3,11 @@
 
 // Write your JavaScript code.
 $(document).ready(function () {
-  $("#menuBtn").click(function () {
+  $("#open-menu-btn").click(function () {
+    $("#navMenu").toggleClass("open-menu");
+    $("#navMenu").toggleClass("close-menu");
+  });
+  $("#close-menu-btn").click(function () {
     $("#navMenu").toggleClass("open-menu");
     $("#navMenu").toggleClass("close-menu");
   });
