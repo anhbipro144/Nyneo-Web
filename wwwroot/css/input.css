@@ -4,7 +4,7 @@
 
 @layer utilities {
   .clip {
-    clip-path: circle(25px at 90% -10%);
+    clip-path: circle(25px at 100% -10%);
   }
   .unClip {
     clip-path: circle(100%);
@@ -21,8 +21,30 @@
   bg-transparent rotate-[720deg];
 }
 
+.menu-item-origin {
+  @apply absolute opacity-0  -top-[20%] transition-all;
+}
+.menu-item-1 {
+  @apply absolute top-[0%] opacity-100 delay-[0ms] transition-all ease-in-out;
+}
+.menu-item-2 {
+  @apply absolute top-[25%] opacity-100 delay-[30ms]  transition-all ease-in-out;
+}
+.menu-item-3 {
+  @apply absolute top-[50%] opacity-100 delay-[60ms]   transition-all ease-in-out;
+}
+.menu-item-4 {
+  @apply absolute top-[75%] opacity-100 delay-[90ms]  transition-all ease-in-out;
+}
+.menu-item-5 {
+  @apply absolute top-[100%] opacity-100 delay-[120ms]  transition-all ease-in-out;
+}
+.menu-item-6 {
+  @apply absolute top-[125%] opacity-100 delay-[150ms]   transition-all ease-in-out;
+}
+
 .thirdButton {
-  @apply flex justify-center bg-primary-500 hover:bg-primary-600 text-gray-100  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500;
+  @apply flex justify-center bg-primary-500 hover:bg-primary-600 text-gray-100   tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500;
 }
 .thirdButtonOutline {
   @apply flex justify-center border-2 border-primary-500 bg-white text-primary-500 hover:bg-primary-500 hover:text-white   rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500;
@@ -35,51 +57,27 @@
   @apply unClip transition-all duration-300 ease-in-out;
 }
 
-.wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  bottom: 0;
-  /* height: 100%;
-  width: 100%; */
-  /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
-  /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
-  /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);*/
-  /* clip-path: circle(25px at calc(0% + 45px) 45px); */
-  /* background: #000; */
-  /* clip-path: circle(25px at 90% -10%); */
-  /* transition: all 0.3s ease-in-out; */
+div.menu li.animate:nth-of-type(1) {
+  top: 120px;
+  transition-delay: 0s;
 }
-
-.menu-btn {
-  /* z-index: 2; */
-  background: #000;
-  height: 50px;
-  width: 50px;
-  text-align: center;
-  border-radius: 50%;
-  font-size: 20px;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+div.menu li.animate:nth-of-type(2) {
+  top: 190px;
+  transition-delay: 0.03s;
 }
-
-.wrapper ul {
-  text-align: center;
+div.menu li.animate:nth-of-type(3) {
+  top: 260px;
+  transition-delay: 0.06s;
 }
-.wrapper ul li {
-  margin: 15px 0;
+div.menu li.animate:nth-of-type(4) {
+  top: 330px;
+  transition-delay: 0.09s;
 }
-.wrapper ul li a {
-  color: none;
-  text-decoration: none;
-  font-size: 30px;
-  font-weight: 500;
-  padding: 5px 30px;
-  color: #fff;
-  border-radius: 50px;
-  position: relative;
-  line-height: 50px;
-  transition: all 0.3s ease;
+div.menu li.animate:nth-of-type(5) {
+  top: 400px;
+  transition-delay: 0.12s;
+}
+div.menu li.animate:nth-of-type(6) {
+  top: 470px;
+  transition-delay: 0.15s;
 }

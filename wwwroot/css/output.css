@@ -598,20 +598,12 @@ video {
   right: 0px;
 }
 
-.right-5 {
-  right: 1.25rem;
-}
-
 .top-0 {
   top: 0px;
 }
 
 .top-4 {
   top: 1rem;
-}
-
-.top-6 {
-  top: 1.5rem;
 }
 
 .z-10 {
@@ -739,6 +731,10 @@ video {
   height: 2rem;
 }
 
+.h-80 {
+  height: 20rem;
+}
+
 .h-full {
   height: 100%;
 }
@@ -757,6 +753,10 @@ video {
 
 .w-4 {
   width: 1rem;
+}
+
+.w-48 {
+  width: 12rem;
 }
 
 .w-6 {
@@ -908,6 +908,10 @@ video {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-20 {
+  gap: 5rem;
 }
 
 .gap-3 {
@@ -1256,6 +1260,10 @@ video {
   letter-spacing: 0.025em;
 }
 
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
@@ -1454,11 +1462,79 @@ video {
   content: var(--tw-content);
 }
 
+.menu-item-origin {
+  position: absolute;
+  top: -20%;
+  opacity: 0;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.menu-item-1 {
+  position: absolute;
+  top: 0%;
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-delay: 0ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item-2 {
+  position: absolute;
+  top: 25%;
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-delay: 30ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item-3 {
+  position: absolute;
+  top: 50%;
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-delay: 60ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item-4 {
+  position: absolute;
+  top: 75%;
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-delay: 90ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item-5 {
+  position: absolute;
+  top: 100%;
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-delay: 120ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item-6 {
+  position: absolute;
+  top: 125%;
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-delay: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .thirdButton {
   display: flex;
   cursor: pointer;
   justify-content: center;
-  border-radius: 9999px;
   --tw-bg-opacity: 1;
   background-color: rgb(128 185 24 / var(--tw-bg-opacity));
   font-weight: 600;
@@ -1517,8 +1593,8 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-clip-path: circle(25px at 90% -10%);
-          clip-path: circle(25px at 90% -10%);
+  -webkit-clip-path: circle(25px at 100% -10%);
+          clip-path: circle(25px at 100% -10%);
 }
 
 .close-menu {
@@ -1529,55 +1605,34 @@ video {
           clip-path: circle(100%);
 }
 
-.wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  bottom: 0;
-  /* height: 100%;
-  width: 100%; */
-  /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
-  /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
-  /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);*/
-  /* clip-path: circle(25px at calc(0% + 45px) 45px); */
-  /* background: #000; */
-  /* clip-path: circle(25px at 90% -10%); */
-  /* transition: all 0.3s ease-in-out; */
+div.menu li.animate:nth-of-type(1) {
+  top: 120px;
+  transition-delay: 0s;
 }
 
-.menu-btn {
-  /* z-index: 2; */
-  background: #000;
-  height: 50px;
-  width: 50px;
-  text-align: center;
-  border-radius: 50%;
-  font-size: 20px;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+div.menu li.animate:nth-of-type(2) {
+  top: 190px;
+  transition-delay: 0.03s;
 }
 
-.wrapper ul {
-  text-align: center;
+div.menu li.animate:nth-of-type(3) {
+  top: 260px;
+  transition-delay: 0.06s;
 }
 
-.wrapper ul li {
-  margin: 15px 0;
+div.menu li.animate:nth-of-type(4) {
+  top: 330px;
+  transition-delay: 0.09s;
 }
 
-.wrapper ul li a {
-  color: none;
-  text-decoration: none;
-  font-size: 30px;
-  font-weight: 500;
-  padding: 5px 30px;
-  color: #fff;
-  border-radius: 50px;
-  position: relative;
-  line-height: 50px;
-  transition: all 0.3s ease;
+div.menu li.animate:nth-of-type(5) {
+  top: 400px;
+  transition-delay: 0.12s;
+}
+
+div.menu li.animate:nth-of-type(6) {
+  top: 470px;
+  transition-delay: 0.15s;
 }
 
 @media (min-width: 768px) {
