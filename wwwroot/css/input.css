@@ -11,6 +11,16 @@
   }
 }
 
+.bar-state-menu {
+  @apply before:bg-white  before:content-[''] before:rounded-lg  before:w-8 before:h-1 before:absolute before:-translate-y-3  before:-translate-x-4 before:transition-all before:duration-500
+   after:bg-white  after:content-[''] after:w-8  after:rounded-lg after:h-1 after:absolute after:translate-y-3 after:-translate-x-4 after:transition-all after:duration-500;
+}
+.x-state-menu {
+  @apply before:bg-white  before:content-['']  before:rounded-lg  before:w-8 before:h-1 before:absolute before:translate-y-0 before:rotate-45  before:-translate-x-4 before:transition-all before:duration-500
+  after:bg-white  after:content-[''] after:rounded-lg after:w-8 after:h-1 after:absolute after:translate-y-0 after:-rotate-45 after:-translate-x-4 after:transition-all after:duration-500
+  bg-transparent rotate-[720deg];
+}
+
 .thirdButton {
   @apply flex justify-center bg-primary-500 hover:bg-primary-600 text-gray-100  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500;
 }

@@ -3,12 +3,18 @@
 
 // Write your JavaScript code.
 $(document).ready(function () {
-  $("#open-menu-btn").click(function () {
+  const menuBtn = $("#open-menu-btn");
+  const menuIcon = $("#btn-icon");
+
+  menuBtn.click(function () {
     $("#navMenu").toggleClass("open-menu");
     $("#navMenu").toggleClass("close-menu");
+    menuIcon.toggleClass("bar-state-menu");
+    menuIcon.toggleClass("x-state-menu");
   });
-  $("#close-menu-btn").click(function () {
-    $("#navMenu").toggleClass("open-menu");
-    $("#navMenu").toggleClass("close-menu");
-  });
+
+  // $("#close-menu-btn").click(function () {
+  //   $("#navMenu").toggleClass("open-menu");
+  //   $("#navMenu").toggleClass("close-menu");
+  // });
 });

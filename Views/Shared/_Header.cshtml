@@ -23,22 +23,21 @@
                 </div> *@
 
             <div class="flex">
-                <button id="open-menu-btn" class=" flex justify-center items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
-                    stroke="currentColor" class="w-8 h-8 text-white">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
+                <button id="open-menu-btn" class="relative z-10 flex flex-col gap-2 w-8 h-8  justify-center items-center">
+                    <div id="btn-icon" class="absolute top-4 -mt-0.5 w-8 h-1 bg-white rounded-lg  transition-all duration-500 
+                    bar-state-menu
+                    ">
+                    </div>
                 </button>
 
                 <div id="navMenu" class="wrapper  bg-secondary-500 open-menu flex justify-center items-start">
-                    <button id="close-menu-btn" class="absolute top-6 right-5  justify-center items-center">
+                    @* <button id="close-menu-btn" class="absolute top-6 right-5 justify-center items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
                         stroke="currentColor" class="w-8 h-8 text-white">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
 
-                    </button>
+                        </button> *@
                     <ul class="mt-40">
                         <li><a class="uppercase">HOME</a></li>
                         <li><a class="uppercase" href="#">ABOUT</a></li>
