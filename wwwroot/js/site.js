@@ -1,26 +1,117 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-// Write your JavaScript code.
-$(document).ready(function () {
-  const menuBtn = $("#open-menu-btn");
-  const menuIcon = $("#btn-icon");
+import { gsap, CSSPlugin } from "../lib/gsap/all.js";
 
-  menuBtn.click(function () {
-    $("#navMenu").toggleClass("open-menu");
-    $("#navMenu").toggleClass("close-menu");
-    menuIcon.toggleClass("bar-state-menu");
-    menuIcon.toggleClass("x-state-menu");
+// Register the CSS plugin with GSAP
+gsap.registerPlugin(CSSPlugin);
 
-    $("#navMenu ul li").toggleClass("menu-item-origin");
-    $("#navMenu ul li:nth-child(1)").toggleClass("menu-item-1");
-    $("#navMenu ul li:nth-child(2)").toggleClass("menu-item-2");
-    $("#navMenu ul li:nth-child(3)").toggleClass("menu-item-3");
-    $("#navMenu ul li:nth-child(4)").toggleClass("menu-item-4");
+// Define the animation timelines
+
+const hamburgerTL = gsap.timeline({
+  defaults: { duration: 0.08, ease: "none" },
+  paused: true,
+});
+
+const hamburger2TL = gsap.timeline({
+  defaults: { duration: 0.08, ease: "none" },
+  paused: true,
+});
+
+const clipTL = gsap.timeline({ defaults: {}, paused: true });
+
+//#region Hamburger Move
+
+hamburger2TL
+  .to("#hamburger-button .hamburger-bar:nth-child(4)", {
+    top: "50%",
+    rotate: 45,
+    duration: 0.2,
+    ease: "none",
+  })
+  .to(
+    "#hamburger-button .hamburger-bar:nth-child(5)",
+    {
+      opacity: 0,
+    },
+    0
+  )
+  .to(
+    "#hamburger-button .hamburger-bar:nth-child(6)",
+    {
+      top: 16,
+      rotate: -45,
+      duration: 0.2,
+      ease: "none",
+    },
+    0
+  );
+
+hamburgerTL
+  .to("#hamburger-button .hamburger-bar:nth-child(1)", {
+    x: 60,
+  })
+  .to("#hamburger-button .hamburger-bar:nth-child(4)", {
+    x: 0,
+  })
+  .to(
+    "#hamburger-button .hamburger-bar:nth-child(2)",
+    {
+      x: 60,
+    },
+    "<-0.02"
+  )
+  .to("#hamburger-button .hamburger-bar:nth-child(5)", {
+    x: 0,
+  })
+  .to(
+    "#hamburger-button .hamburger-bar:nth-child(3)",
+    {
+      x: 60,
+    },
+    "<-0.02"
+  )
+  .to("#hamburger-button .hamburger-bar:nth-child(6)", {
+    x: 0,
   });
+//#endregion
 
-  // $("#close-menu-btn").click(function () {
-  //   $("#navMenu").toggleClass("open-menu");
-  //   $("#navMenu").toggleClass("close-menu");
-  // });
+//
+
+clipTL.to("#navMenu", {
+  clipPath: "circle(100%)",
+  duration: 0,
+});
+
+$(function () {
+  // Declare vars
+  const menuBtn = $("#hamburger-button");
+  const menu = $("#navMenu");
+
+  // Hover
+  menuBtn.hover(
+    () => {
+      hamburgerTL.play();
+    },
+    () => {
+      if (!menuBtn.hasClass("is-active")) {
+        hamburgerTL.reverse();
+      }
+    }
+  );
+
+  // Click
+  menuBtn.click(function () {
+    // $("#navMenu").toggleClass("unclip");
+    menuBtn.toggleClass("is-active");
+    if (menuBtn.hasClass("is-active")) {
+      clipTL.play();
+      hamburgerTL.play();
+      hamburger2TL.play(0);
+    } else {
+      clipTL.reverse();
+      hamburger2TL.reverse();
+      hamburgerTL.reverse();
+    }
+  });
 });

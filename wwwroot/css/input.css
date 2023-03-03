@@ -6,41 +6,6 @@
   .clip {
     clip-path: circle(25px at 100% -10%);
   }
-  .unClip {
-    clip-path: circle(100%);
-  }
-}
-
-.bar-state-menu {
-  @apply before:bg-white  before:content-[''] before:rounded-lg  before:w-8 before:h-1 before:absolute before:-translate-y-3  before:-translate-x-4 before:transition-all before:duration-500
-   after:bg-white  after:content-[''] after:w-8  after:rounded-lg after:h-1 after:absolute after:translate-y-3 after:-translate-x-4 after:transition-all after:duration-500;
-}
-.x-state-menu {
-  @apply before:bg-white  before:content-['']  before:rounded-lg  before:w-8 before:h-1 before:absolute before:translate-y-0 before:rotate-45  before:-translate-x-4 before:transition-all before:duration-500
-  after:bg-white  after:content-[''] after:rounded-lg after:w-8 after:h-1 after:absolute after:translate-y-0 after:-rotate-45 after:-translate-x-4 after:transition-all after:duration-500
-  bg-transparent rotate-[720deg];
-}
-
-.menu-item-origin {
-  @apply absolute opacity-0  -top-[20%] transition-all;
-}
-.menu-item-1 {
-  @apply absolute top-[0%] opacity-100 delay-[0ms] transition-all ease-in-out;
-}
-.menu-item-2 {
-  @apply absolute top-[25%] opacity-100 delay-[30ms]  transition-all ease-in-out;
-}
-.menu-item-3 {
-  @apply absolute top-[50%] opacity-100 delay-[60ms]   transition-all ease-in-out;
-}
-.menu-item-4 {
-  @apply absolute top-[75%] opacity-100 delay-[90ms]  transition-all ease-in-out;
-}
-.menu-item-5 {
-  @apply absolute top-[100%] opacity-100 delay-[120ms]  transition-all ease-in-out;
-}
-.menu-item-6 {
-  @apply absolute top-[125%] opacity-100 delay-[150ms]   transition-all ease-in-out;
 }
 
 .thirdButton {
@@ -50,34 +15,13 @@
   @apply flex justify-center border-2 border-primary-500 bg-white text-primary-500 hover:bg-primary-500 hover:text-white   rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500;
 }
 
-.open-menu {
+/* .open-menu {
   @apply clip transition-all duration-300 ease-in-out;
 }
 .close-menu {
   @apply unClip transition-all duration-300 ease-in-out;
-}
+} */
 
-div.menu li.animate:nth-of-type(1) {
-  top: 120px;
-  transition-delay: 0s;
-}
-div.menu li.animate:nth-of-type(2) {
-  top: 190px;
-  transition-delay: 0.03s;
-}
-div.menu li.animate:nth-of-type(3) {
-  top: 260px;
-  transition-delay: 0.06s;
-}
-div.menu li.animate:nth-of-type(4) {
-  top: 330px;
-  transition-delay: 0.09s;
-}
-div.menu li.animate:nth-of-type(5) {
-  top: 400px;
-  transition-delay: 0.12s;
-}
-div.menu li.animate:nth-of-type(6) {
-  top: 470px;
-  transition-delay: 0.15s;
+.unclip {
+  clip-path: circle(100%);
 }
