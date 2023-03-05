@@ -18,7 +18,7 @@ public class GoogleCloudService : IGoogleCloudService
     }
     public async Task DeleteFileAsync(string? fileNameForStorage)
     {
-        if (string.IsNullOrWhiteSpace(fileNameForStorage))
+        if (!string.IsNullOrWhiteSpace(fileNameForStorage))
         {
             try
             {

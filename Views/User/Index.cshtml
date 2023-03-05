@@ -1,0 +1,48 @@
+@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "User Management Page";
+}
+
+
+<section id="index">
+
+
+    <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        User
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Role
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Actions
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="bg-white border-b ">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                            @item.UserName
+                        </th>
+                        <td class="px-6 py-4">
+                            @item.Roles.
+                        </td>
+                        <td class="px-6 py-4">
+                            <a asp-controller="Role" asp-action="UpdateUserRole" asp-route-userId=@item.Id>Update</a>
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+</section>

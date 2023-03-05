@@ -24,6 +24,32 @@ namespace Nyneo_Web.Controllers
         [HttpGet]
         public ViewResult Register() => View();
 
+        // [HttpPost]
+        public async Task<IActionResult> RegisterAdmin()
+        {
+
+            var admin = new User
+            {
+                Email = "admin@gmail.com",
+                UserName = "admin",
+            };
+
+            IdentityResult result = await _userManager.CreateAsync(admin, "admin123");
+
+            if (result.Succeeded)
+                ViewBag.Message = "User Created Successfully";
+            else
+            {
+                foreach (IdentityError error in result.Errors)
+                    ModelState.AddModelError("", error.Description);
+            }
+
+            await _userManager.AddToRoleAsync(admin, "Admin");
+
+
+            return RedirectToAction("Index", "Home");
+        }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterUser model)
         {
@@ -48,7 +74,7 @@ namespace Nyneo_Web.Controllers
                     ModelState.AddModelError("", error.Description);
             }
 
-            // await _userManager.AddToRoleAsync(user, "User");
+            await _userManager.AddToRoleAsync(user, "User");
 
 
             return RedirectToAction("Index", "Home");
@@ -99,29 +125,7 @@ namespace Nyneo_Web.Controllers
         #endregion
 
 
-        #region Role
-        [HttpGet]
-        public IActionResult AddRole() => View();
 
-        [HttpPost]
-        public async Task<IActionResult> AddRole(string name)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
-            IdentityResult result = await _roleManager.CreateAsync(new Role() { Name = name });
-            if (result.Succeeded)
-                ViewBag.Message = "Role Created Successfully";
-            else
-            {
-                foreach (IdentityError error in result.Errors)
-                    ModelState.AddModelError("", error.Description);
-            }
-            return RedirectToAction("Index", "Home");
-        }
-        #endregion
 
 
         [Authorize]

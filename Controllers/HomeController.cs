@@ -1,11 +1,10 @@
 ﻿using System.Diagnostics;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Nyneo_Web.Models;
+using Nyneo_Web.ViewModel;
 using Nyneo_Web.Services;
-using Nyneo_Web.Services.Implementations;
 
 namespace Nyneo_Web.Controllers;
 
@@ -28,7 +27,7 @@ public class HomeController : Controller
 
     public IActionResult Index() => View();
 
-    [Authorize]
+    [Authorize("Admin")]
     public IActionResult List()
     {
         IEnumerable<IndexDiaryVM> result = _diaryRepository.GetAll().Result.Select(diary =>

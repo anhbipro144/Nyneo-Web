@@ -1,0 +1,27 @@
+@model UpdateUserRoleVM
+@{
+    ViewData["Title"] = "Role Management Page";
+}
+
+
+<section id="index">
+
+    <div class="flex flex-col gap-2 container mx-auto min-h-screen">
+
+        <span>@Model.user.UserName</span>
+        <form asp-controller="Role" asp-action="UpdateUserRole" method="post">
+            <input type="hidden" name="userId" value=@Model.user.Id>
+
+            <select asp-for=@Model.roleName
+                class="w-full content-center text-base px-4 py-2 border-2   border-gray-300 transition-colors duration-300 rounded-lg focus:outline-none focus:border-primary"
+                type="password" placeholder="Enter your password">
+                @foreach (var item in Model.roleList)
+                {
+                    <option value=@item.Name>@item.Name</option>
+                }
+            </select>
+            <button type="submit">Update</button>
+        </form>
+
+    </div>
+</section>

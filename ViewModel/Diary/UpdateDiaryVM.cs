@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Nyneo_Web.Models;
+namespace Nyneo_Web.ViewModel;
 
 public class UpdateDiaryVM
 {

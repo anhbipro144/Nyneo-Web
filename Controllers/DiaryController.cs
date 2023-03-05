@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Nyneo_Web.Models;
+using Nyneo_Web.ViewModel;
 using Nyneo_Web.Services;
 
 namespace Nyneo_Web.Controllers
@@ -68,7 +69,7 @@ namespace Nyneo_Web.Controllers
 
         #region  Delete
 
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Delete(string diaryId)
         {

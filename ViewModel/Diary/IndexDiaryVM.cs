@@ -1,8 +1,6 @@
 using System.ComponentModel;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 
-namespace Nyneo_Web.Models;
+namespace Nyneo_Web.ViewModel;
 
 public class IndexDiaryVM
 {

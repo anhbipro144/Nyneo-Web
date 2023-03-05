@@ -1,0 +1,16 @@
+@model IEnumerable<Role>
+@{
+    ViewData["Title"] = "Role Management Page";
+}
+
+
+<section id="index">
+
+    <div class="flex flex-col gap-2 container mx-auto min-h-screen">
+        @foreach (var item in Model)
+        {
+            <span>@item.Name</span>
+            <span>@item.Id</span>
+        }
+    </div>
+</section>
