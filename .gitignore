@@ -3,6 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+
+# Personal
+neon-azimuth-379608-cab2ba22c1c5.json
+
+
 # User-specific files
 *.rsuser
 *.suo
@@ -62,6 +67,7 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt

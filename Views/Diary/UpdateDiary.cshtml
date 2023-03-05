@@ -1,9 +1,10 @@
-@model Diary
+@model UpdateDiaryVM
 <section id="updateDiary">
     <div class="md:container mx-auto md:p-5 mt-2 min-h-screen">
 
 
-        <form asp-action="UpdateDiary" asp-controller="Diary" class="text-titleText px-5 ">
+        <form asp-action="UpdateDiary" asp-controller="Diary" class="text-titleText px-5 "
+            enctype="multipart/form-data">
 
             @* Title *@
             <div class="md:mb-7 ">
@@ -25,8 +26,28 @@
             <div class="md:mb-7 hidden">
                 <input asp-for=@Model.userId class="md:w-1/3 " />
             </div>
+
+            @* Show img *@
+            <div class="md:mb-7 ">
+                <img src=@Model.signedUrl />
+            </div>
+
+            <div class="md:mb-7 ">
+                <label asp-for=@Model.ImgFile></label>
+                <input asp-for=@Model.ImgFile
+                    class="md:w-1/3 w-full font-bold text-gray-700 text-3xl  bg-transparent focus:outline-none " />
+                <span asp-validation-for=@Model.ImgFile class="text-red-700"></span>
+            </div>
+
+
+            @* SavedImgName to update *@
             <div class="md:mb-7 hidden">
-                <input asp-for=@Model.Id class="md:w-1/3 " />
+                <input asp-for=@Model.savedImgName class="md:w-1/3 " />
+            </div>
+
+            @* Id to reference to update*@
+            <div class="md:mb-7 hidden">
+                <input asp-for=@Model.id class="md:w-1/3 " />
             </div>
 
             <button type="submit"

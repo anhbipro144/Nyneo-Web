@@ -1,7 +1,7 @@
 
 using Nyneo_Web.Models;
 
-namespace BookStoreMVC.Services;
+namespace Nyneo_Web.Services;
 
 public interface IDiaryRepository
 {

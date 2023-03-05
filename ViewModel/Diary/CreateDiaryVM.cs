@@ -1,6 +1,4 @@
 using System.ComponentModel;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace Nyneo_Web.Models;
 
@@ -13,6 +11,13 @@ public class CreateDiary
     public string? title { get; set; }
     [DisplayName("Content")]
     public string? content { get; set; }
+
+
+    [DisplayName("Image File")]
+    // [permittedextensions(new string[] { ".jpg", "png" }]
+    public IFormFile? ImgFile { get; set; }
+
+
 
 }
 

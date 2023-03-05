@@ -1,4 +1,3 @@
-using BookStoreMVC.Services;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using Nyneo_Web.DataAccess;
@@ -22,10 +21,6 @@ public class DiaryRepositoryService : IDiaryRepository
         _diarysCollection = mongoDatabase.GetCollection<Diary>(
             diaryDatabaseSettings.Value.DiariesCollectionName);
     }
-
-
-
-
 
     // ------------------------
     public async Task<IEnumerable<Diary>> GetAll()

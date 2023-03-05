@@ -3,18 +3,20 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Nyneo_Web.Models;
-using Nyneo_Web.Services.Implementations;
+using Nyneo_Web.Services;
 
 namespace Nyneo_Web.Controllers
 {
     // [Route("diary")]
     public class DiaryController : Controller
     {
-        private readonly DiaryRepositoryService _diaryRepository;
+        private readonly IGoogleCloudService _googleCloudService;
+        private readonly IDiaryRepository _diaryRepository;
         private readonly UserManager<User> _userManager;
 
-        public DiaryController(DiaryRepositoryService diaryRepository, UserManager<User> userManager)
+        public DiaryController(IDiaryRepository diaryRepository, UserManager<User> userManager, IGoogleCloudService googleCloudService)
         {
+            _googleCloudService = googleCloudService;
             _diaryRepository = diaryRepository;
             _userManager = userManager;
         }
@@ -48,10 +50,15 @@ namespace Nyneo_Web.Controllers
             {
                 content = model.content,
                 title = model.title,
-                userId = model.userId
+                userId = model.userId,
             };
 
+            if (model.ImgFile != null)
+            {
+                diary.savedImgName = _googleCloudService.GenerateFileNameToSave(model.ImgFile.FileName);
+                await _googleCloudService.UploadFileAsync(model.ImgFile, diary.savedImgName);
 
+            }
             await _diaryRepository.AddAsync(diary);
 
             return RedirectToAction("List", "Home");
@@ -74,25 +81,60 @@ namespace Nyneo_Web.Controllers
         #region Update
 
         [HttpGet]
-        public IActionResult UpdateDiary(string diaryId)
+        public IActionResult UpdateDiary(string? diaryId)
 
         {
-            Diary model = _diaryRepository.GetById(diaryId).Result;
+            Diary diary = _diaryRepository.GetById(diaryId).Result;
+
+            var model = new UpdateDiaryVM()
+            {
+                content = diary.content,
+                id = diary.Id,
+                savedImgName = diary.savedImgName,
+                signedUrl = _googleCloudService.GetSignedUrlAsync(diary.savedImgName).Result,
+                title = diary.title,
+                userId = diary.userId
+            };
 
             return View(model);
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> UpdateDiary(Diary model)
+        public async Task<IActionResult> UpdateDiary(UpdateDiaryVM updateDiary)
         {
 
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View(updateDiary);
             }
-            await _diaryRepository.UpdateAsync(model);
 
+            // DTO
+            var model = new Diary()
+            {
+                content = updateDiary.content,
+                Id = updateDiary.id,
+                title = updateDiary.title,
+                userId = updateDiary.userId
+            };
+
+
+            if (!string.IsNullOrWhiteSpace(updateDiary.savedImgName))
+            {
+                await _googleCloudService.DeleteFileAsync(updateDiary.savedImgName);
+            }
+
+            // Update if img is uploaded 
+            if (updateDiary.ImgFile != null)
+            {
+
+                model.savedImgName = _googleCloudService.GenerateFileNameToSave(updateDiary.ImgFile.FileName);
+                await _googleCloudService.UploadFileAsync(updateDiary.ImgFile, model.savedImgName);
+
+            }
+
+            // Update
+            await _diaryRepository.UpdateAsync(model);
 
             return RedirectToAction("List", "Home");
         }

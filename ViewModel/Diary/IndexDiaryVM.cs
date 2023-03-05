@@ -7,7 +7,7 @@ namespace Nyneo_Web.Models;
 public class IndexDiaryVM
 {
 
-    public string id { get; set; }
+    public string? id { get; set; }
     public string? userName { get; set; }
 
 
@@ -20,7 +20,9 @@ public class IndexDiaryVM
 
     public DateTime created_at { get; set; }
 
-    public string userId { get; set; }
+    public string? signedUrl { get; set; }
+
+    public string? userId { get; set; }
 
 }
 
