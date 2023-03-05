@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.WebHost.UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT"));
+// builder.WebHost.UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT"));
 
 
 builder.Services.Configure<DiaryDatabaseSettings>(
@@ -37,6 +37,20 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/Operations/Login";
     options.AccessDeniedPath = "/Identity/Account/AccessDenied";
     options.SlidingExpiration = true;
+});
+
+// Authorize Policies
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Admin",
+        policyBuilder => policyBuilder.RequireRole("Admin"));
+    options.AddPolicy("User",
+        policyBuilder => policyBuilder.RequireRole("User"));
+    options.AddPolicy("RequireAuthenticated",
+        policyBuilder => policyBuilder.RequireAuthenticatedUser());
+    // options.AddPolicy("RequireAuthenticated",
+    //     policyBuilder => policyBuilder.AddRequirements(new ));
 });
 
 
