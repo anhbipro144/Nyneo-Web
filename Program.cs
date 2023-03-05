@@ -1,6 +1,7 @@
 using MongoDB.Bson;
 using Nyneo_Web.DataAccess;
 using Nyneo_Web.Models;
+using Nyneo_Web.Services;
 using Nyneo_Web.Services.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +15,8 @@ builder.WebHost.UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("
 builder.Services.Configure<DiaryDatabaseSettings>(
     builder.Configuration.GetSection("DiaryDatabase"));
 
-builder.Services.AddSingleton<DiaryRepositoryService>();
+builder.Services.AddSingleton<IDiaryRepository, DiaryRepositoryService>();
+builder.Services.AddSingleton<IGoogleCloudService, GoogleCloudService>();
 
 builder.Services.AddIdentity<User, Role>(opts =>
     {
