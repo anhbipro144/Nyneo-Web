@@ -6,13 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Nyneo_Web</RootNamespace>
     <UserSecretsId>bd27143f-0bf8-471e-87c5-71edca80b799</UserSecretsId>
-    <InvariantGloblalization>true</InvariantGloblalization>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.Identity.MongoDbCore" Version="3.1.2" />
     <PackageReference Include="Google.Cloud.Storage.V1" Version="4.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
   </ItemGroup>
 
