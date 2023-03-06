@@ -19,7 +19,8 @@ builder.Services.AddSingleton<IDiaryRepository, DiaryRepositoryService>();
 builder.Services.AddSingleton<IGoogleCloudService, GoogleCloudService>();
 
 
-var connectionString = builder.Configuration["ConnectionString"];
+
+string? myVar = Environment.GetEnvironmentVariable("ConnectionString");
 
 builder.Services.AddIdentity<User, Role>(opts =>
     {
@@ -28,7 +29,7 @@ builder.Services.AddIdentity<User, Role>(opts =>
         opts.Password.RequireNonAlphanumeric = false;
     })
     .AddMongoDbStores<User, Role, ObjectId>(
-      connectionString,
+      myVar,
         builder.Configuration.GetValue<string>("DiaryDatabase:DatabaseName"));
 
 builder.Services.ConfigureApplicationCookie(options =>
