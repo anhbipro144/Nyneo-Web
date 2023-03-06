@@ -20,7 +20,7 @@ builder.Services.AddSingleton<IGoogleCloudService, GoogleCloudService>();
 
 
 
-string? myVar = Environment.GetEnvironmentVariable("ConnectionString");
+var myVar = Environment.GetEnvironmentVariable("ConnectionString");
 
 builder.Services.AddIdentity<User, Role>(opts =>
     {
