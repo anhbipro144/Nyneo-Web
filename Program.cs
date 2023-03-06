@@ -20,7 +20,7 @@ builder.Services.AddSingleton<IGoogleCloudService, GoogleCloudService>();
 
 
 
-var myVar = builder.Configuration.GetValue<string>("DiaryDatabase:ConnectionString");
+var myVar = Environment.GetEnvironmentVariable("ConnectionString");
 
 builder.Services.AddIdentity<User, Role>(opts =>
     {
