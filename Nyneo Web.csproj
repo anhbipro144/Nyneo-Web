@@ -5,7 +5,6 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Nyneo_Web</RootNamespace>
-    <UserSecretsId>bd27143f-0bf8-471e-87c5-71edca80b799</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
