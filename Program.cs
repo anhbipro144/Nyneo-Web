@@ -19,7 +19,7 @@ builder.Services.AddSingleton<IDiaryRepository, DiaryRepositoryService>();
 builder.Services.AddSingleton<IGoogleCloudService, GoogleCloudService>();
 
 
-var connectionString = builder.Configuration["DiaryDatabase:ConnectionString"];
+var connectionString = builder.Configuration["ConnectionString"];
 
 builder.Services.AddIdentity<User, Role>(opts =>
     {
