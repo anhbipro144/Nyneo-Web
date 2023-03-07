@@ -6,12 +6,23 @@ using Nyneo_Web.Services.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+if (builder.Environment.IsDevelopment())
+{
+
+}
+else
+{
+    builder.WebHost.UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT"));
+
+}
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Configuration.AddEnvironmentVariables();
 
 
 // Config for Railway
-builder.WebHost.UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT"));
 
 
 // Connect MongoDb
