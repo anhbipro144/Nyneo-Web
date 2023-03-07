@@ -16,10 +16,9 @@ builder.WebHost.UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("
 
 // Connect MongoDb
 
-var db = builder.Configuration.GetSection("DiaryDatabase");
+var Appdb = builder.Configuration.GetSection("DiaryDatabase");
 
-builder.Services.Configure<DiaryDatabaseSettings>(db);
-
+builder.Services.Configure<DiaryDatabaseSettings>(Appdb);
 builder.Services.AddSingleton<IDiaryRepository, DiaryRepositoryService>();
 builder.Services.AddSingleton<IGoogleCloudService, GoogleCloudService>();
 
@@ -36,7 +35,7 @@ builder.Services.AddIdentity<User, Role>(opts =>
         opts.Password.RequireNonAlphanumeric = false;
     })
     .AddMongoDbStores<User, Role, ObjectId>(
-       ConnectionString,
+       ConnectionString ?? AppConnectionString,
         builder.Configuration.GetValue<string>("DiaryDatabase:DatabaseName"));
 
 
