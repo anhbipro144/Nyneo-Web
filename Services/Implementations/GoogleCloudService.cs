@@ -12,7 +12,8 @@ public class GoogleCloudService : IGoogleCloudService
     public GoogleCloudService(IConfiguration configuration)
     {
         var key = configuration.GetValue<string>("GoogleCredentialFile");
-        googleCredential = GoogleCredential.FromFile(key);
+        string googleCredentialJson = configuration.GetValue<string>("GoogleCredentialJson");
+        googleCredential = GoogleCredential.FromFile(key) ?? GoogleCredential.FromJson(googleCredentialJson);
         storageClient = StorageClient.Create(googleCredential);
         bucketName = configuration.GetValue<string>("GoogleCloudStorageBucket");
     }
