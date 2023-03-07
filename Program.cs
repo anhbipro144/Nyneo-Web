@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 if (builder.Environment.IsDevelopment())
 {
+    Console.WriteLine(builder.Configuration.GetValue<string>("ConnectionString"));
 
 }
 else
@@ -19,7 +20,7 @@ else
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Configuration.AddEnvironmentVariables();
+// builder.Configuration.AddEnvironmentVariables();
 
 
 // Config for Railway
@@ -34,10 +35,9 @@ builder.Services.AddSingleton<IDiaryRepository, DiaryRepositoryService>();
 builder.Services.AddSingleton<IGoogleCloudService, GoogleCloudService>();
 
 
-
 // Identity
 var ConnectionString = Environment.GetEnvironmentVariable("ConnectionString");
-var AppConnectionString = builder.Configuration.GetValue<string>("DiaryDatabase:ConnectionString");
+var ConnectionString2 = builder.Configuration.GetValue<string>("ConnectionString");
 
 builder.Services.AddIdentity<User, Role>(opts =>
     {
@@ -46,7 +46,7 @@ builder.Services.AddIdentity<User, Role>(opts =>
         opts.Password.RequireNonAlphanumeric = false;
     })
     .AddMongoDbStores<User, Role, ObjectId>(
-       ConnectionString ?? AppConnectionString,
+       ConnectionString2,
         builder.Configuration.GetValue<string>("DiaryDatabase:DatabaseName"));
 
 
