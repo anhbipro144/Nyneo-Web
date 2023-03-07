@@ -12,8 +12,8 @@ public class DiaryRepositoryService : IDiaryRepository
     public DiaryRepositoryService(
         IOptions<DiaryDatabaseSettings> diaryDatabaseSettings)
     {
-        var mongoClient = new MongoClient(
-            diaryDatabaseSettings.Value.ConnectionString);
+        var ConnectionString = Environment.GetEnvironmentVariable("ConnectionString");
+        var mongoClient = new MongoClient(ConnectionString);
 
         var mongoDatabase = mongoClient.GetDatabase(
             diaryDatabaseSettings.Value.DatabaseName);
